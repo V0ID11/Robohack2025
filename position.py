@@ -1,10 +1,9 @@
 from sbot import vision
 from sbot import marker as m
-import position as p
 
 
-def get_markers():
-    WallMarkers, BoxMarkers = [],[]
+def get_markers_in_sight() -> tuple(list[m.Marker]):
+    WallMarkers: list[m.Marker], BoxMarkers = [],[]
     markers = vision.detect_markers()
     for marker in markers:
         if marker.id<=27:
@@ -30,4 +29,5 @@ def direction_to_marker(marker:m.Marker):
         return "s", 0
 
         
-     
+def detect_and_save():
+    vision.detect_markers()
