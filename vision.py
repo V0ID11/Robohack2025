@@ -7,7 +7,6 @@ def get_markers():
     for marker in markers:
         if marker.id<=27:
             WallMarkers.append(marker)
-            marker.position.
         else:
             BoxMarkers.append(marker)
     return WallMarkers,BoxMarkers
