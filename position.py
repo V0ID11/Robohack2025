@@ -30,4 +30,4 @@ def direction_to_marker(marker:m.Marker):
 
         
 def detect_and_save():
-    vision.detect_markers()
+    vision.detect_markers(save="god.jpeg")
