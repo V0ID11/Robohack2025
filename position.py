@@ -19,7 +19,7 @@ def find_closest(markers: list[m.Marker]):
             closest_marker = markers[i]
     return closest_marker
 
-def direction_to_marker(marker:m.Marker):
+def direction_to_marker(marker: m.Marker) -> int:
     angle = marker.position.horizontal_angle
     if angle > 0:
         return "r", angle
