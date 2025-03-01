@@ -1,7 +1,5 @@
 import move as m
 import time as zac
+import turn as t
 
-
-m.move("f")
-zac.sleep(2)
-m.stop()
+t.turn("r",60)
