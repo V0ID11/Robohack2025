@@ -1,0 +1,20 @@
+[0003.176] sbot.robot - INFO - SourceBots API v2025.0.0
+[0003.205] sbot.internal.serial_wrapper - INFO - Connected to board Power Board v4:SB_PB_A
+[0003.234] sbot.internal.serial_wrapper - INFO - Connected to board MCV4B:SRO-AAV-GRC
+[0003.242] sbot.internal.serial_wrapper - INFO - Connected to board Power Board v4:SB_PB_A
+[0007.204] sbot.internal.board_manager - INFO - Connected 1 power boards
+[0007.205] sbot.internal.board_manager - INFO - Index: 0  =>  serial: SB_PB_A, output 0
+[0007.206] sbot.internal.board_manager - INFO - Index: 1  =>  serial: SB_PB_A, output 1
+[0007.209] sbot.internal.board_manager - INFO - Index: 2  =>  serial: SB_PB_A, output 2
+[0007.211] sbot.internal.board_manager - INFO - Index: 3  =>  serial: SB_PB_A, output 3
+[0007.213] sbot.internal.board_manager - INFO - Index: 4  =>  serial: SB_PB_A, output 4
+[0007.214] sbot.internal.board_manager - INFO - Index: 5  =>  serial: SB_PB_A, output 5
+[0007.215] sbot.internal.board_manager - INFO - Index: 6  =>  serial: SB_PB_A, output 6
+[0007.216] sbot.internal.board_manager - INFO - Connected 1 motor boards
+[0007.218] sbot.internal.board_manager - INFO - Index: 0  =>  serial: SRO-AAV-GRC, output 0
+[0007.219] sbot.internal.board_manager - INFO - Index: 1  =>  serial: SRO-AAV-GRC, output 1
+[0007.220] sbot.internal.board_manager - INFO - Connected camera: UVC Camera (046d:0825) - 0
+[0007.221] sbot._utils - INFO - Waiting for start button.
+[0009.747] sbot._utils - INFO - Start button pressed.
+[0009.750] sbot._comp - INFO - No JSON metadata files found in /media/robot
+[0011.132 - INFO] Your code finished successfully.
