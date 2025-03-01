@@ -12,10 +12,11 @@ def turn(direction: str,angle=-1):
             i = (totaltime/0.2) % 1
         totaltime = totaltime - 0.2*i
         for x in range(1,i+1):
+            totaltime = totaltime - 0.2*(i/5)
             motors.set_power(0,0.1*x*directionAsInt)
             motors.set_power(1,0.1*x*directionAsInt)
             t.sleep(0.1)
-        t.sleep(totaltime)
+        t.sleep(totaltime*(5/i))
         for x in range(i,0,-1):
             motors.set_power(0,0.1*x*directionAsInt)
             motors.set_power(1,0.1*x*directionAsInt)
