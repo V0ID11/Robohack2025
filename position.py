@@ -3,7 +3,7 @@ from sbot import marker as m
 
 
 def get_markers_in_sight() -> tuple(list[m.Marker]):
-    WallMarkers: list[m.Marker], BoxMarkers = [],[]
+    WallMarkers, BoxMarkers = [],[]
     markers = vision.detect_markers()
     for marker in markers:
         if marker.id<=27:
