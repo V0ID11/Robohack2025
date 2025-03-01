@@ -1,7 +1,7 @@
-from sbot import *
+import move as m
 import time as zac
-motors.set_power(0,-0.5)
-motors.set_power(1,-0.5)
-zac.sleep(1)
-motors.set_power(0,0)
-motors.set_power(1,0)
+
+
+m.move("f")
+zac.sleep(2)
+m.stop()
