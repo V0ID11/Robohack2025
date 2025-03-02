@@ -2,6 +2,7 @@ from sbot import vision
 from sbot import marker as m
 import turn as t
 import move as mov
+import time as zac
 
 
 def get_markers_in_sight() -> tuple(list[m.Marker]):
@@ -20,6 +21,7 @@ def find_marker_of_id(id: int) -> m.Marker:
     counter = 0
     marker_found = False
     while counter < 6:
+        zac.sleep(5)
         markers_in_sight = get_markers_in_sight()
         for marker in markers_in_sight[1]:
             if marker.id == id:
@@ -35,7 +37,7 @@ def get_angle_to_enemy_wall(own_team: int):
         enemy_wall_markers = [i for i in range(21, 28)]
 
     for i in range(4):
-        markers: list[m.Marker] = get_markers_in_sight()[1]
+        markers: list[m.Marker] = get_markers_in_sight()[0]
         for marker in markers:
             if marker.id in enemy_wall_markers:
                 return marker.position.horizontal_angle
