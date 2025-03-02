@@ -4,7 +4,7 @@ import time as t
 def move(direction: str, speed=0.25,time=-1, distance=-1) -> None:
     directionAsInt = 1
     time = distance/36.6
-    rightMotor = speed + 0.07
+    rightMotor = speed + 0.15
     leftMotor = speed
     if direction.lower() == "f":
         directionAsInt = -1
