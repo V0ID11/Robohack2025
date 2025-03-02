@@ -66,11 +66,15 @@ def go_to_cube():
         d = "c"
     else:
         d = "ac"
-
+    id = closest_marker.id
     #Distance here is done in cm
     while closest_marker.position.distance/10 > 1:
         detect_and_save()
-        box_markers = get_markers_in_sight()[1]
+        try:
+            box_markers = get_markers_in_sight()[1]
+        except: 
+            find_marker_of_id(id)
+            box_markers = get_markers_in_sight()[1]
         #Find closest cube 
         closest_marker = find_closest(box_markers)
         print(closest_marker.position.distance)
