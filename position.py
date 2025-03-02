@@ -58,7 +58,8 @@ def direction_to_marker(marker: m.Marker) -> float:
     return deg_angle
         
     
-def go_to_cube(box_markers:list[m.Marker]):
+def go_to_cube():
+    box_markers = get_markers_in_sight()[1]
     #Find closest cube 
     closest_marker = find_closest(box_markers)
     if direction_to_marker(closest_marker)>0:
