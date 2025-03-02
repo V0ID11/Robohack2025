@@ -28,7 +28,7 @@ def find_marker_of_id(id: int) -> m.Marker:
         
         t.turn("c", 60)
     
-def get_angle_to_enemy_wall(own_team: int) -> float:
+def get_angle_to_enemy_wall(own_team: int):
     if own_team == 0:
         enemy_wall_markers = [i for i in range(7, 14)]
     else:
