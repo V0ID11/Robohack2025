@@ -3,4 +3,4 @@ import time as zac
 import turn as t
 import position as p
 
-p.detect_and_save()
+p.find_marker_of_id(106)
