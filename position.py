@@ -65,8 +65,11 @@ def go_to_cube(box_markers:list[m.Marker]):
         d = "c"
     else:
         d = "ac"
-    t.turn(d,abs(direction_to_marker(closest_marker)))
-    mov.move("f", time=1,distance=(closest_marker.position.distance/10))
+
+    #Distance here is done in cm
+    while closest_marker.position.distance/10 > 20:
+        t.turn(d,abs(direction_to_marker(closest_marker)))
+        mov.move("f", time=1,distance=(closest_marker.position.distance/10))
     return closest_marker
 
 
