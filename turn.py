@@ -18,5 +18,3 @@ def turn(direction: str,angle=-1):
 def stop() -> None:
     motors.set_power(0,BRAKE)
     motors.set_power(1,BRAKE)
-    motors.set_power(0,BRAKE)
-    motors.set_power(1,BRAKE)
