@@ -8,12 +8,12 @@ def turn(direction: str,angle=-1):
     if angle > -1:
         totaltime = angle/360 * 3
         motors.set_power(0,0.25*directionAsInt)
-        motors.set_power(1,0.25*directionAsInt)
+        motors.set_power(1,-0.25*directionAsInt)
         t.sleep(totaltime)
         stop()
     else:
-        motors.set_power(0,0.5*directionAsInt)
-        motors.set_power(1,-0.5*directionAsInt)
+        motors.set_power(0,0.25*directionAsInt)
+        motors.set_power(1,-0.25*directionAsInt)
 
 def stop() -> None:
     motors.set_power(0,BRAKE)
