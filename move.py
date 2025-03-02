@@ -14,6 +14,6 @@ def move(direction: str, speed=0.25,time=-1) -> None:
 
 
 def stop() -> None:
-    motors.set_power(0,0)
-    motors.set_power(1,0)
+    motors.set_power(0,BRAKE)
+    motors.set_power(1,BRAKE)
 
