@@ -3,6 +3,7 @@ from sbot import marker as m
 import turn as t
 import move as mov
 import time as zac
+import math
 
 
 def get_markers_in_sight() -> tuple(list[m.Marker]):
@@ -54,7 +55,9 @@ def find_closest(markers: list[m.Marker]) -> m.Marker:
     return closest_marker
 
 def direction_to_marker(marker: m.Marker) -> int:
-    return marker.position.horizontal_angle
+    rad_angle = marker.position.horizontal_angle
+    deg_angle = rad_angle * (180/math.pi)
+    return deg_angle
         
 def detect_and_save() -> None:
     vision.detect_markers(save="god.jpeg")
