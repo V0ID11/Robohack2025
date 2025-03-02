@@ -97,8 +97,8 @@ def go_to_cube():
 
     
 
-def detect_and_save() -> None:
-    vision.detect_markers(save="god.jpeg")
+def detect_and_save(n) -> None:
+    vision.detect_markers(save="god"+ str(n) + ".jpeg")
     print("God has been saved")
 
 def getWallMarkerLocation(id):
@@ -123,14 +123,12 @@ def getWallMarkerLocation(id):
 
 
 
-def getLocation():
-
-    wallMarkers = get_markers_in_sight()[0]
+def getLocation(wallMarkers):
     marker1 = wallMarkers[0]
     marker2 = wallMarkers[len(wallMarkers) -1]
     loc1 = getWallMarkerLocation(marker1.id)
     loc2 = getWallMarkerLocation(marker2.id)
-    roboloc = calculate_robot_position((loc1[0],loc1[1],marker1.position.hoizontal_angle,marker1.position.distance),(loc2[0],loc2[1],marker2.position.hoizontal_angle,marker2.position.distance))
+    roboloc = calculate_robot_position((loc1[0],loc1[1],marker1.position.horizontal_angle,marker1.position.distance),(loc2[0],loc2[1],marker2.position.horizontal_angle,marker2.position.distance))
     return roboloc
 
 def calculate_robot_position(marker1, marker2):
@@ -159,7 +157,7 @@ def calculate_robot_position(marker1, marker2):
         return [error1, error2, error3, error4]
 
     # Initial guess for (x0, y0, theta0)
-    initial_guess = [0, 0, 0]  # assuming robot starts at origin and facing upwards (angle 0)
+    initial_guess = [2500, 2500, 0]  # assuming robot starts at origin and facing upwards (angle 0)
 
     # Solve the system of equations to minimize error
     result = least_squares(error, initial_guess)
