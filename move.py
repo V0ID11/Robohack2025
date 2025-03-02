@@ -3,6 +3,8 @@ import time as t
 
 def move(direction: str, speed=0.25,time=-1) -> None:
     directionAsInt = 1
+    rightMotor = speed + 0.03
+    leftMotor = speed
     if direction.lower() == "f":
         directionAsInt = -1
 
