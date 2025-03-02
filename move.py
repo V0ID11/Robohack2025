@@ -1,9 +1,10 @@
 from sbot import *
 import time as t
 
-def move(direction: str, speed=0.25,time=-1) -> None:
+def move(direction: str, speed=0.25,time=-1, distance=null) -> None:
     directionAsInt = 1
-    rightMotor = speed + 0.03
+    time = distance/36.6
+    rightMotor = speed + 0.07
     leftMotor = speed
     if direction.lower() == "f":
         directionAsInt = -1
