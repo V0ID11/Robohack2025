@@ -56,6 +56,19 @@ def find_closest(markers: list[m.Marker]) -> m.Marker:
 def direction_to_marker(marker: m.Marker) -> int:
     return marker.position.horizontal_angle
         
+    
+def go_to_cube(markers:list[m.Marker]):
+    #Find closest cube 
+    closest_marker = find_closest(markers)
+    all_box_markers = get_markers_in_sight[1]
+    if closest_marker in all_box_markers:
+        t.turn(direction_to_marker(closest_marker))
+        mov.move("f", time=1,distance=(closest_marker.position.distance/10))
+    return closest_marker
+
+
+    
+
 def detect_and_save() -> None:
     vision.detect_markers(save="god.jpeg")
     print("God has been saved")
