@@ -4,4 +4,4 @@ import turn as t
 import position as p
 
 # m.move("f", 0.5)
-p.detect_and_save()
+t.turn("c",angle=90)
