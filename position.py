@@ -80,7 +80,7 @@ def go_to_cube():
             d = "ac"
 
         t.turn(d,abs(direction_to_marker(closest_marker)))
-        mov.move("f", time=1,distance=(closest_marker.position.distance/10))
+        mov.move("f", time=1,distance=(closest_marker.position.distance/20))
     return closest_marker
 
 
