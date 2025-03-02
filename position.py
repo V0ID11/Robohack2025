@@ -72,11 +72,13 @@ def go_to_cube():
         detect_and_save()
         try:
             box_markers = get_markers_in_sight()[1]
+            closest_marker = find_closest(box_markers)
         except: 
             find_marker_of_id(id)
             box_markers = get_markers_in_sight()[1]
+            closest_marker = find_closest(box_markers)
         #Find closest cube 
-        closest_marker = find_closest(box_markers)
+       
         print(closest_marker.position.distance)
         if direction_to_marker(closest_marker)>0:
             d = "c"
