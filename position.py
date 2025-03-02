@@ -7,12 +7,13 @@ import math
 import numpy as np
 from scipy.optimize import least_squares
 
-def get_markers_in_sight() -> tuple(list[m.Marker]):
+def get_markers_in_sight():
     mov.stop()
-    WallMarkers, BoxMarkers = [],[]
-    zac.sleep(1)
+    WallMarkers = []
+    BoxMarkers = []
+    zac.sleep(0.25)
     markers = vision.detect_markers()
-    zac.sleep(1)
+    zac.sleep(0.25)
     for marker in markers:
         if marker.id<=27:
             WallMarkers.append(marker)
@@ -48,9 +49,9 @@ def get_angle_to_enemy_wall(own_team: int):
 
 def find_closest(markers: list[m.Marker]) -> m.Marker:
     closest_marker = markers[0]
-    for i in range(1,len(markers)-1):
-        if markers[i].position.distance < closest_marker.position.distance:
-            closest_marker = markers[i]
+    for i in markers:
+        if i.position.distance < closest_marker.position.distance:
+            closest_marker = i
     return closest_marker
 
 def direction_to_marker(marker: m.Marker) -> float:
@@ -69,8 +70,8 @@ def go_to_cube():
         d = "ac"
     id = closest_marker.id
     #Distance here is done in cm
-    while closest_marker.position.distance/10 > 1:
-        detect_and_save()
+    while closest_marker.position.distance > 20:
+        detect_and_save(1)
         try:
             box_markers = get_markers_in_sight()[1]
             closest_marker = find_closest(box_markers)
@@ -88,10 +89,10 @@ def go_to_cube():
 
         if closest_marker.position.distance < 700:
             t.turn(d,abs(direction_to_marker(closest_marker)))
-            mov.move("f", speed = 0.5, time=1,distance=(closest_marker.position.distance/20))
+            mov.move("f",distance=(20))
         else:
             t.turn(d,abs(direction_to_marker(closest_marker)))
-            mov.move("f", time=1,distance=(closest_marker.position.distance/20))
+            mov.move("f",distance=(70))
     return closest_marker
 
 
