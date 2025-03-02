@@ -5,3 +5,10 @@ def get_top_distance():
 
 def get_bottom_distance():
     return arduino.measure_ultrasound_distance(8,9)
+
+def isBox():
+    """Returns True if Box is detected otherwise False"""
+    if get_bottom_distance() < 50 and get_top_distance()>500:
+        return True
+    else:
+        return False
