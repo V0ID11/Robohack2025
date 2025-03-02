@@ -8,7 +8,7 @@ def get_bottom_distance():
 
 def isBox():
     """Returns True if Box is detected otherwise False"""
-    if get_bottom_distance() < 50:
+    if get_bottom_distance() < 70:
         return True
     else:
         return False

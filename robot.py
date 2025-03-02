@@ -4,6 +4,7 @@ import turn as t
 import position as p
 import math 
 import ultrasonic as u
+from sbot import comp
 # m.move(direction="f", time = 5, distance = 500)
 
 #marker = p.find_marker_of_id(106)
@@ -56,7 +57,9 @@ def goToPoint(dest,hasCube):
 
 def goToCube():
     cube = findClosestCube()
+    cubeid = cube.id
     while u.isBox() ==  False:
+        angle = cube.position.horizontal_angle +0.14
         if cube.position.horizontal_angle < 0:
             t.turn("ac",abs(cube.position.horizontal_angle * (180/math.pi)))
         else:
@@ -65,33 +68,43 @@ def goToCube():
             m.move("f",distance=60)
         else:
             m.move("f",distance=20)
-        cube = findClosestCube(cube)
+        if u.get_top_distance() <300:
+            m.move("r",distance=30)
+            t.turn("c",90)
+            cube = findClosestCube()
+        else:
+            cube = p.find_marker_of_id(cubeid)
+        if cube == False:
+            m.move("r",distance=30)
+            cube = p.find_marker_of_id(cubeid)
+            if cube == False:
+                cube = findClosestCube()
+                cubeid = cube.id
         
 def findClosestCube(previous = 0):
     currentCubes = p.get_markers_in_sight()[1]
     counter = 1
     while len(currentCubes) < 1:
-        if u.isBox() == True:
-            return previous
-        if counter % 2 == 0:
-            t.turn("a",10*counter)
-        else:
-            t.turn("c",10*counter)
+        t.turn("c",10)
         counter = counter +1
         currentCubes = p.get_markers_in_sight()[1]
     return p.find_closest(currentCubes)
         
 
+locations = [[(2400,1500),(5300,1500),(2000,1500),(500,2000)],[(3200,1300),(20,1300),(3500,1300),(4900,2000)]]
 
-
+#while True:
+    #print(u.get_top_distance())
+    #zac.sleep(1)
 
 while True:
     goToCube()
-    if goToPoint((3000,1300),True) == "fail":
+    if goToPoint(locations[comp.zone][0],True) == "fail":
         continue
-    if goToPoint((20,1300),True) == "fail":
+    if goToPoint(locations[comp.zone][1],True) == "fail":
         continue
     m.move("r",distance=100)
-    if goToPoint((3000,1300),False) == "fail":
-        continue
+    goToPoint(locations[comp.zone][2],False)
+    goToPoint(locations[comp.zone][3],False)
+
     

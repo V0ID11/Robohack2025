@@ -24,13 +24,11 @@ def get_markers_in_sight():
 def find_marker_of_id(id: int) -> m.Marker:
     mov.stop()
     marker_found = False
-    while True:
-        markers_in_sight = get_markers_in_sight()
-        for marker in markers_in_sight[1]:
-            if marker.id == id:
-                return marker
-        
-        t.turn("c", 45)
+    markers_in_sight = get_markers_in_sight()
+    for marker in markers_in_sight[1]:
+        if marker.id == id:
+            return marker
+    return False
     
 def get_angle_to_enemy_wall(own_team: int):
     if own_team == 0:
