@@ -61,7 +61,11 @@ def direction_to_marker(marker: m.Marker) -> float:
 def go_to_cube(box_markers:list[m.Marker]):
     #Find closest cube 
     closest_marker = find_closest(box_markers)
-    t.turn(direction_to_marker(closest_marker))
+    if direction_to_marker(closest_marker)>0:
+        d = "c"
+    else:
+        d = "ac"
+    t.turn(d,abs(direction_to_marker(closest_marker)))
     mov.move("f", time=1,distance=(closest_marker.position.distance/10))
     return closest_marker
 
