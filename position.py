@@ -85,8 +85,12 @@ def go_to_cube():
         else:
             d = "ac"
 
-        t.turn(d,abs(direction_to_marker(closest_marker)))
-        mov.move("f", time=1,distance=(closest_marker.position.distance/20))
+        if closest_marker.position.distance < 700:
+            t.turn(d,abs(direction_to_marker(closest_marker)))
+            mov.move("f", speed = 0.5, time=1,distance=(closest_marker.position.distance/20))
+        else:
+            t.turn(d,abs(direction_to_marker(closest_marker)))
+            mov.move("f", time=1,distance=(closest_marker.position.distance/20))
     return closest_marker
 
 
