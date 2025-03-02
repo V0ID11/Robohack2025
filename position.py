@@ -68,8 +68,7 @@ def go_to_cube():
         d = "ac"
 
     #Distance here is done in cm
-    readjustment_distance = 10
-    while closest_marker.position.distance/10 > readjustment_distance:
+    while closest_marker.position.distance/10 > 10:
         box_markers = get_markers_in_sight()[1]
         #Find closest cube 
         closest_marker = find_closest(box_markers)
