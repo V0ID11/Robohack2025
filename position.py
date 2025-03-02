@@ -21,16 +21,14 @@ def get_markers_in_sight() -> tuple(list[m.Marker]):
 
 def find_marker_of_id(id: int) -> m.Marker:
     mov.stop()
-    counter = 0
     marker_found = False
-    while counter < 6:
+    for i in range(8):
         markers_in_sight = get_markers_in_sight()
         for marker in markers_in_sight[1]:
             if marker.id == id:
                 return marker
-        counter += 1
         
-        t.turn("c", 60)
+        t.turn("c", 45)
     
 def get_angle_to_enemy_wall(own_team: int):
     if own_team == 0:
@@ -38,12 +36,12 @@ def get_angle_to_enemy_wall(own_team: int):
     else:
         enemy_wall_markers = [i for i in range(21, 28)]
 
-    for i in range(4):
+    for i in range(6):
         markers: list[m.Marker] = get_markers_in_sight()[0]
         for marker in markers:
             if marker.id in enemy_wall_markers:
                 return marker.position.horizontal_angle
-        t.turn("c", 90)
+        t.turn("c", 60)
     
     return 0
 
