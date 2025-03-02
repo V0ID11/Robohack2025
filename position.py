@@ -54,7 +54,7 @@ def find_closest(markers: list[m.Marker]) -> m.Marker:
             closest_marker = markers[i]
     return closest_marker
 
-def direction_to_marker(marker: m.Marker) -> int:
+def direction_to_marker(marker: m.Marker) -> float:
     rad_angle = marker.position.horizontal_angle
     deg_angle = rad_angle * (180/math.pi)
     return deg_angle
