@@ -22,7 +22,7 @@ def get_markers_in_sight() -> tuple(list[m.Marker]):
 def find_marker_of_id(id: int) -> m.Marker:
     mov.stop()
     marker_found = False
-    for i in range(8):
+    while True:
         markers_in_sight = get_markers_in_sight()
         for marker in markers_in_sight[1]:
             if marker.id == id:
