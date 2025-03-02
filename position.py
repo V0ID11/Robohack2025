@@ -8,7 +8,9 @@ import time as zac
 def get_markers_in_sight() -> tuple(list[m.Marker]):
     mov.stop()
     WallMarkers, BoxMarkers = [],[]
+    zac.sleep(1)
     markers = vision.detect_markers()
+    zac.sleep(1)
     for marker in markers:
         if marker.id<=27:
             WallMarkers.append(marker)
@@ -21,7 +23,6 @@ def find_marker_of_id(id: int) -> m.Marker:
     counter = 0
     marker_found = False
     while counter < 6:
-        zac.sleep(5)
         markers_in_sight = get_markers_in_sight()
         for marker in markers_in_sight[1]:
             if marker.id == id:
